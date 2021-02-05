@@ -354,7 +354,9 @@ class _DraggableWidgetState extends State<DraggableWidget>
         setState(() {
           left = hardLeft + (animation.value) * remaingDistanceX;
           if (animation.value == 0) {
-            top = hardTop;
+            top = hardTop +
+                (animation.value) * remaingDistanceY +
+                (widget.statusBarHeight * animation.value);
           } else {
             top = ((1 - animation.value) * hardTop +
                 (widget.topMargin * (animation.value)));
